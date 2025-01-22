@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/jthuraisamy/ltxml#readme",
   "dependencies": {
-    "linq": "2.7.0",
+    "linq": "3.2.4",
     "xmldom": ">=0.6.0"
   }
 }
