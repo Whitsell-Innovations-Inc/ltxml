@@ -315,7 +315,8 @@ Email: eric@ericwhite.com
 var Enumerable = require('linq');
 var Ltxml;
 
-const { DOMParser } = require('xmldom');
+// const { DOMParser } = require('xmldom');
+const { DOMParser } = require('@xmldom/xmldom');
 var parseXml, Functions, Ltxml, addContentThatCanContainEntities,
     serializeAttributeContent, annotateRootForNamespaces,
     prefixCounter, entityCodePoints, entities,

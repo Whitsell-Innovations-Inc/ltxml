@@ -1,6 +1,6 @@
 {
   "name": "ltxml",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "LINQ to XML for JavaScript",
   "main": "index.js",
   "repository": {
@@ -20,7 +20,13 @@
   },
   "homepage": "https://github.com/jthuraisamy/ltxml#readme",
   "dependencies": {
-    "linq": "3.2.4",
-    "xmldom": ">=0.6.0"
+    "@xmldom/xmldom": "^0.8.11",
+    "linq": "3.2.4"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
