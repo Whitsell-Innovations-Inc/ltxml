@@ -365,8 +365,30 @@ parseXml = function (xmlStr) {
         xmlStr = xmlStr.substring(1);
     }
 
-    domParser = new DOMParser().parseFromString(xmlStr, "application/xml");
-    return domParser;
+    console.debug("Checking what mode we are in for parseXml");
+    console.debug("typeof Ltxml.DOMParser:", typeof Ltxml.DOMParser);
+    console.debug("typeof window.DOMParser:", typeof window !== "undefined" ? typeof window.DOMParser : "window is undefined");
+    console.debug("typeof window.ActiveXObject:", typeof window !== "undefined" ? typeof window.ActiveXObject : "window is undefined");
+    if (typeof Ltxml.DOMParser !== "undefined") {
+        console.debug("Using Ltxml.DOMParser");
+        domParser = (new Ltxml.DOMParser()).parseFromString(xmlStr, "application/xml");
+        return domParser;
+    } else if (typeof window !== "undefined" && typeof window.DOMParser !== "undefined") {
+        console.debug("Using window.DOMParser");
+        domParser = (new window.DOMParser()).parseFromString(xmlStr, "application/xml");
+        return domParser;
+    } else if (typeof window !== "undefined" && typeof window.ActiveXObject !== "undefined" &&
+            new window.ActiveXObject("Microsoft.XMLDOM")) {
+        console.debug("Using window.ActiveXObject");
+        var xmlDoc = new window.ActiveXObject("Microsoft.XMLDOM");
+        xmlDoc.async = "false";
+        xmlDoc.loadXML(xmlStr);
+        return xmlDoc;
+    } else {
+        console.debug("Using @xmldom/xmldom DOMParser");
+        domParser = new DOMParser().parseFromString(xmlStr, "application/xml");
+        return domParser;
+    }
 };
 /*ignore jslint end*/
 
