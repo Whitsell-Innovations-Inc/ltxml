@@ -3329,16 +3329,16 @@ annotateRootForNamespaces = function (rootElement) {
         nsCache, ns, prefix, el, xmlns, none, xml;
 
     // Clear the preferred prefix for all namespaces in the global namespace cache.
-    xmlns = Ltxml.XNamespace.getXmlns();
-    none = Ltxml.XNamespace.getNone();
-    xml = Ltxml.XNamespace.getXml();
-    for (ns in Ltxml.namespaceCache) {
-        if (Ltxml.namespaceCache.hasOwnProperty(ns)) {
-            if (Ltxml.namespaceCache[ns].namespaceName) {
-                Ltxml.namespaceCache[ns].preferredPrefix = null;
-            }
-        }
-    }
+    // xmlns = Ltxml.XNamespace.getXmlns();
+    // none = Ltxml.XNamespace.getNone();
+    // xml = Ltxml.XNamespace.getXml();
+    // for (ns in Ltxml.namespaceCache) {
+    //     if (Ltxml.namespaceCache.hasOwnProperty(ns)) {
+    //         if (Ltxml.namespaceCache[ns].namespaceName) {
+    //             Ltxml.namespaceCache[ns].preferredPrefix = null;
+    //         }
+    //     }
+    // }
 
     // Initialize the local namespace cache.
     prefixCounter = 0;
@@ -3356,8 +3356,8 @@ annotateRootForNamespaces = function (rootElement) {
         nd = aa[i];
         if (nd.isNamespaceDeclaration) {
             ns = new Ltxml.XNamespace(nd.value);
-            prefix = nd.name.localName;
-            ns.preferredPrefix = prefix;
+            // prefix = nd.name.localName;
+            // ns.preferredPrefix = prefix;
             nsCache.namespaceArray.push(ns);
             nsCache.prefixArray.push(prefix);
         }
