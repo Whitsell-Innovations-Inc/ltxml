@@ -1125,7 +1125,7 @@ Ltxml.XNamespace = function (namespace, prefix) {
     if (namespaceCache[namespace] === undefined) {
         nso = {
             namespaceName: namespace,
-            preferredPrefix: null,
+            preferredPrefix: prefix,
             getName: Ltxml.XNamespace.getName,
             toString: Ltxml.XNamespace.toString
         };
